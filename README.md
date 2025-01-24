@@ -1,44 +1,46 @@
-# Thales Open Source Template Project
+# Aspycot: A Spike and Python CO-simulation Testbench
 
-Template for creating a new project in the [Thales GitHub organization](https://github.com/ThalesGroup).
+## Introduction
 
-Each Thales OSS project repository **MUST** contain the following files at the root:
+Aspycot is a platform allowing rapid prototyping and early-validation of hardware monitoring IPs in standalone.
+It automates the compiling of applications and uses an instruction set simulator (ISS) to get execution traces.
+The traces are used as input stimuli for the hardware IP, whose behavior is checked in respect to a certain execution (or threat) model.
 
-- a `LICENSE` which has been chosen in accordance with legal department depending on your needs
+Aspycot is based on components from the open source ecosystem:
 
-- a `README.md` outlining the project goals, sponsoring sig, and community contact information, [GitHub tips about README.md](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/about-readmes)
-
-- a `CONTRIBUTING.md` outlining how to contribute to the project, how to submit a pull request and an issue
-
-- a `SECURITY.md` outlining how the security concerns are handled, [GitHub tips about SECURITY.md](https://docs.github.com/en/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository)
-
-Below is an example of the common structure and information expected in a README.
-
-**Please keep this structure as is and only fill the content for each section according to your project.**
-
-If you need assistance or have question, please contact oss@thalesgroup.com
+- RISC-V gcc toolchain
+- Spike RISC-V ISS
+- cocotb
 
 ## Get started
 
-XXX project purpose it to ...
+You need the following tools:
 
-**Please also add the description into the About section (Description field)**
+- [A RISC-V compiler](https://github.com/riscv-collab/riscv-gnu-toolchain)
+- [Spike ISS](https://github.com/riscv-software-src/riscv-isa-sim)
+- [cocotb](https://www.cocotb.org/) (currently aspycot used cocotb 1.9.2)
+- a HDL simulator [supported by cocotb](https://docs.cocotb.org/en/stable/simulator_support.html) (verilator for Verilog/SystemVerilog, GHDL for VHDL ...)
+- [pytest](https://docs.pytest.org/en/stable/)
+
+And then you can use the platform with the example from the [associated article](README.md#publication):
+
+```bash
+git clone aspycot
+make ip=jop_alarm bmarks=hello_world,jop10
+```
 
 ## Documentation
 
-Documentation is available at [xxx/docs](https://xxx/docs/).
-
-You can use [GitHub pages](https://guides.github.com/features/pages/) to create your documentation.
-
-See an example here : https://github.com/ThalesGroup/ThalesGroup.github.io
-
-**Please also add the documentation URL into the About section (Website field)**
+Documentation is available at [docs](docs/) on how to extend the platform.
 
 ## Contributing
 
-If you are interested in contributing to the XXX project, start by reading the [Contributing guide](/CONTRIBUTING.md).
+If you are interested in contributing to Aspycot, start by reading the [Contributing guide](/CONTRIBUTING.md).
 
 ## License
 
-The chosen license in accordance with legal department must be defined into an explicit [LICENSE](https://github.com/ThalesGroup/template-project/blob/master/LICENSE) file at the root of the repository
-You can also link this file in this README section.
+The License is GPLv3. See [LICENSE](/LICENSE.md) for more information.
+
+## Publication
+
+Aspycot was presented in RAPIDO'25 workshop and the article will soon be available on ACM.
