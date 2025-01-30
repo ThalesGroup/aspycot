@@ -1,8 +1,8 @@
-# Aspycot: A Spike and Python CO-simulation Testbench
+# Aspycot: A Spike and Python CO-Simulation Testbench for Hardware Monitoring IPs
 
 ## Introduction
 
-Aspycot is a platform allowing rapid prototyping and early-validation of hardware monitoring IPs in standalone.
+Aspycot is a platform allowing rapid prototyping and early-validation of hardware monitoring IPs in standalone mode.
 It automates the compiling of applications and uses an instruction set simulator (ISS) to get execution traces.
 The traces are used as input stimuli for the hardware IP, whose behavior is checked in respect to a certain execution (or threat) model.
 
@@ -31,7 +31,7 @@ make ip=jop_alarm bmarks=hello_world,jop10
 
 ## Documentation
 
-Documentation is available at [docs](docs/) on how to extend the platform.
+Documentation is available at [docs](docs/) on how to extend the platform with new applications, threat models or IPs.
 
 ## Contributing
 
